@@ -2,10 +2,12 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+Model-BasedRL.py
+Model-FreeRL.py
+ValueIteration.py
 # C extensions
 *.so
-
+.gitignore
 # Distribution / packaging
 .Python
 build/
