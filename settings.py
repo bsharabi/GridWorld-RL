@@ -1,0 +1,10 @@
+FPS = 60
+CELL_SIZE = 100
+GRID_WIDTH = 3
+GRID_HEIGHT = 3
+
+
+
+
+
+

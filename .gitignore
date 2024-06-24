@@ -2,9 +2,9 @@
 __pycache__/
 *.py[cod]
 *$py.class
-Model-BasedRL.py
-Model-FreeRL.py
-ValueIteration.py
+# Model-BasedRL.py
+# Model-FreeRL.py
+# ValueIteration.py
 # C extensions
 *.so
 .gitignore
@@ -14,6 +14,8 @@ build/
 develop-eggs/
 dist/
 downloads/
+t.py
+test.py
 eggs/
 .eggs/
 lib/
