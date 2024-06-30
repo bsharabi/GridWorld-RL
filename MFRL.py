@@ -124,6 +124,19 @@ class ModelFreeRL:
                 state = self.grid.get_state_from_pos((r, c))
                 values[r][c] = np.max(self.q_values[state])
         return values
+    def get_values_(self):
+        """
+        Extract the state values from the Q-values.
+
+        Returns:
+            np.ndarray: The state values.
+        """
+        values = np.zeros(self.grid.h*self.grid.w)
+        for r in range(self.grid.h):
+            for c in range(self.grid.w):
+                state = self.grid.get_state_from_pos((r, c))
+                values[state] = np.max(self.q_values[state])
+        return values
 
 # Main function
 if __name__ == "__main__":

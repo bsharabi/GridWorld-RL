@@ -3,10 +3,12 @@ __pycache__/
 *.py[cod]
 /Temp
 *$py.class
+data_parser.py
 # Model-BasedRL.py
 # Model-FreeRL.py
 # ValueIteration.py
-# C extensions
+# C extension
+dataTables.xlsx
 *.so
 .gitignore
 # Distribution / packaging

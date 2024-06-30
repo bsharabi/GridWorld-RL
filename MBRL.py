@@ -208,7 +208,31 @@ class ModelBasedRL:
             temperature *= self.decay
 
         return new_policy
+    def print_environment(self, value):
+        """
+        Print the grid world environment with values or policy.
 
+        Args:
+            arr (np.ndarray): The array to print (values or policy).
+            policy (bool): Whether to print the policy or values.
+        """
+        rewards_dict = {(x, y): val for x, y, val in self.rewards}
+        res = ""
+        for r in range(self.grid.h):
+            res += "|"
+            for c in range(self.grid.w):
+                if (r, c) in [(py, px) for px, py, val in self.rewards if val == 0]:
+                    val = " WALL"
+                elif (r, c) in [(py, px) for px, py, val in self.rewards]:
+                    val = "  +" if rewards_dict[(c, r)] > 0 else "  -"
+                else:
+                    if policy:
+                        val = ["  v", "  <", "  ^", "  >"][value[r][c]]
+                    else:
+                        val = f"{value[r][c]}"
+                res += " " + val[:5].ljust(5) + " |"
+            res += "\n"
+        print(res)
 
 # Main function
 if __name__ == "__main__":
@@ -217,4 +241,7 @@ if __name__ == "__main__":
         agent = ModelBasedRL(grids)
         policy = agent.iterative_policy_learning()
         values = np.max(agent.q_values, axis=1).reshape(agent.grid.h, agent.grid.w)
+        print("Values after training:\n")
+        agent.print_environment(values)
+        break
 
